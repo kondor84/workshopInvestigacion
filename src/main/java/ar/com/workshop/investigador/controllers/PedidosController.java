@@ -26,7 +26,7 @@ public class PedidosController {
         Pedido pedidoNew = iPedidosService.crearPedido(id_investigador,id_cliente,id_contrato,fecha_carga,fecha_entrega);
 
         return ResponseEntity
-                .created(builder.path("{id}").buildAndExpand(pedidoNew.getId_pedido()).toUri())
+                .created(builder.path("{id}").buildAndExpand(pedidoNew.getIdPedido()).toUri())
                 .body(pedidoNew);
     }
 

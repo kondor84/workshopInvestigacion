@@ -20,4 +20,5 @@ public class Pedido {
     private Date fechaCarga;
     private Date fechaEntrega;
     private EstadoPedido estadoPedido;
+
 }
