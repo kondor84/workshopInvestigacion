@@ -11,13 +11,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Pedido {
+public class Contrato {
 
-    private Long idPedido;
-    private Contrato contrato;
+    private Long numeroContrato;
     private Cliente cliente;
-    private Empleado empleado;
-    private Date fechaCarga;
-    private Date fechaEntrega;
-    private EstadoPedido estadoPedido;
+    private int cupos;
+    private Date fechaAlta;
+    private Date fechaVencimiento;
+
 }
