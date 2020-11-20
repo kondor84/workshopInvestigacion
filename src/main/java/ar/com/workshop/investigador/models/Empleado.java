@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -27,4 +28,6 @@ public class Empleado {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_TIPO_EMPLEADO", referencedColumnName = "id")
     private TipoEmpleado tipoEmpleado;
+    @OneToMany(mappedBy = "empleado")
+    private Set<Pedido> pedidos;
 }

@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -21,9 +18,15 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPedido;
-    //private Contrato contrato;
-    //private Cliente cliente;
-    //private Empleado empleado;
+    @ManyToOne
+    @JoinColumn(name="NUMERO_CONTRATO", nullable=false)
+    private Contrato contrato;
+    @ManyToOne
+    @JoinColumn(name="ID_CLIENTE", nullable=false)
+    private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name="ID_EMPLEADO", nullable=false)
+    private Empleado empleado;
     private Date fechaCarga;
     private Date fechaEntrega;
     //private EstadoPedido estadoPedido;
