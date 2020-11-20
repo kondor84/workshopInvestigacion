@@ -1,5 +1,6 @@
 package ar.com.workshop.investigador.controllers;
 
+import ar.com.workshop.investigador.models.Investigado;
 import ar.com.workshop.investigador.models.Pedido;
 import ar.com.workshop.investigador.services.IPedidosService;
 import javassist.NotFoundException;
@@ -17,13 +18,13 @@ public class PedidosController {
     private static IPedidosService iPedidosService;
 
     @PostMapping("crear-pedidos/")
-    private ResponseEntity<Pedido> crearPedido(@RequestParam(required = false) Long id_investigador,
-                                               @RequestParam Long id_cliente,
-                                               @RequestParam Long id_contrato,
-                                               @RequestParam Date fecha_carga,
-                                               @RequestParam Date fecha_entrega,
+    private ResponseEntity<Pedido> crearPedido(@RequestBody Investigado investigado,
+                                               @RequestParam Long idCliente,
+                                               @RequestParam Long idContrato,
+                                               @RequestParam Date fechaCarga,
+                                               @RequestParam Date fechaEntrega,
                                                UriComponentsBuilder builder) throws NotFoundException {
-        Pedido pedidoNew = iPedidosService.crearPedido(id_investigador,id_cliente,id_contrato,fecha_carga,fecha_entrega);
+        Pedido pedidoNew = iPedidosService.crearPedido(investigado,idCliente,idContrato,fechaCarga,fechaEntrega);
 
         return ResponseEntity
                 .created(builder.path("{id}").buildAndExpand(pedidoNew.getIdPedido()).toUri())

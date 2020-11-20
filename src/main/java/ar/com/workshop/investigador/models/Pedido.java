@@ -20,5 +20,7 @@ public class Pedido {
     private Date fechaCarga;
     private Date fechaEntrega;
     private EstadoPedido estadoPedido;
+    private Investigado investigado;
 
+    // TODO crear constructor para crear el pedido
 }
