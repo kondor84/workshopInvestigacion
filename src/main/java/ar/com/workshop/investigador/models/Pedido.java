@@ -20,5 +20,14 @@ public class Pedido {
     private Date fechaCarga;
     private Date fechaEntrega;
     private EstadoPedido estadoPedido;
+    private Investigado investigado;
+
+    public Pedido(Investigado investigadoPedido, Long idCliente, Long idContrato, Date fechaCarga, Date fechaEntrega) {
+    this.investigado = investigadoPedido;
+            this.cliente = new Cliente(idCliente);
+            this.contrato = new Contrato(idContrato);
+            this.fechaCarga =fechaCarga;
+            this.fechaEntrega = fechaEntrega;
+    }
 
 }
