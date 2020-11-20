@@ -19,7 +19,7 @@ public class TipoEmpleado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cargo;
-    @OneToOne(mappedBy = "tipoIdentificador")
+    @OneToOne(mappedBy = "tipoEmpleado")
     private Empleado empleado;
 
 }

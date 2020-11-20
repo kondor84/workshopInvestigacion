@@ -21,18 +21,18 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPedido;
-    private Contrato contrato;
-    private Cliente cliente;
-    private Empleado empleado;
+    //private Contrato contrato;
+    //private Cliente cliente;
+    //private Empleado empleado;
     private Date fechaCarga;
     private Date fechaEntrega;
-    private EstadoPedido estadoPedido;
-    private Investigado investigado;
+    //private EstadoPedido estadoPedido;
+    //private Investigado investigado;
 
     public Pedido(Investigado investigadoPedido, Long idCliente, Long idContrato, Date fechaCarga, Date fechaEntrega) {
-        this.investigado = investigadoPedido;
-        this.cliente = new Cliente(idCliente);
-        this.contrato = new Contrato(idContrato);
+        //this.investigado = investigadoPedido;
+        //this.cliente = new Cliente(idCliente);
+        //this.contrato = new Contrato(idContrato);
         this.fechaCarga =fechaCarga;
         this.fechaEntrega = fechaEntrega;
     }
