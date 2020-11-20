@@ -19,7 +19,7 @@ public class Contrato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numeroContrato;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_CLIENTE", referencedColumnName = "id")
+    @JoinColumn(name = "ID_CLIENTE", referencedColumnName = "id_Cliente")
     private Cliente cliente;
     private int cupos;
     private Date fechaAlta;

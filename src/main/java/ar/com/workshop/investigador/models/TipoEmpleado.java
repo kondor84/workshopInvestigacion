@@ -5,13 +5,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity(name = "tipo_empleado")
+
 public class TipoEmpleado {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cargo;
+    @OneToOne(mappedBy = "tipoIdentificador")
+    private Empleado empleado;
 
 }

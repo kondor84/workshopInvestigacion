@@ -5,12 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity(name = "tipo_empleado")
 public class Pedido {
 
     private Long idPedido;
@@ -22,12 +24,5 @@ public class Pedido {
     private EstadoPedido estadoPedido;
     private Investigado investigado;
 
-    public Pedido(Investigado investigadoPedido, Long idCliente, Long idContrato, Date fechaCarga, Date fechaEntrega) {
-    this.investigado = investigadoPedido;
-            this.cliente = new Cliente(idCliente);
-            this.contrato = new Contrato(idContrato);
-            this.fechaCarga =fechaCarga;
-            this.fechaEntrega = fechaEntrega;
-    }
 
 }

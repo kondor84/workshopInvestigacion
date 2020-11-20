@@ -24,5 +24,7 @@ public class Empleado {
     private TipoIdentificador tipoIdentificador;
     @Column(name = "NUMERO_IDENTIFICADOR")
     private String numeroIdentificador;
-    //private TipoEmpleado tipoEmpleado;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_TIPO_EMPLEADO", referencedColumnName = "id")
+    private TipoEmpleado tipoEmpleado;
 }
