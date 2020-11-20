@@ -14,8 +14,11 @@ import java.util.Date;
 @RestController
 @RequestMapping("pedidos/")
 public class PedidosController {
-    @Autowired
-    private static IPedidosService iPedidosService;
+    private final IPedidosService iPedidosService;
+
+    public PedidosController(IPedidosService iPedidosService) {
+        this.iPedidosService = iPedidosService;
+    }
 
     @PostMapping("crear-pedidos/")
     private ResponseEntity<Pedido> crearPedido(@RequestBody Investigado investigado,

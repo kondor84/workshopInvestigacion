@@ -19,4 +19,7 @@ public class Contrato {
     private Date fechaAlta;
     private Date fechaVencimiento;
 
+    public Contrato(Long idContrato) {
+        this.numeroContrato = idContrato;
+    }
 }

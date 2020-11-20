@@ -1,10 +1,10 @@
 package ar.com.workshop.investigador.services.implementacion;
 
 import ar.com.workshop.investigador.exceptions.ApiExceptions;
-import ar.com.workshop.investigador.models.Cliente;
-import ar.com.workshop.investigador.models.Contrato;
 import ar.com.workshop.investigador.models.Investigado;
 import ar.com.workshop.investigador.models.Pedido;
+import ar.com.workshop.investigador.repositories.ClienteRepository;
+import ar.com.workshop.investigador.repositories.ContratoRepository;
 import ar.com.workshop.investigador.repositories.InvestigadoRepository;
 import ar.com.workshop.investigador.repositories.PedidoRepository;
 import ar.com.workshop.investigador.services.IPedidosService;
@@ -18,10 +18,10 @@ import java.util.Date;
 @Service
 public class PedidoService implements IPedidosService {
 
-    private static PedidoRepository pedidoRepository;
-    private static InvestigadoRepository investigadoRepository;
-    private static ClienteRepository clienteRepository;
-    private static ContratoRepository contratoRepository;
+    private final PedidoRepository pedidoRepository;
+    private final InvestigadoRepository investigadoRepository;
+    private final ClienteRepository clienteRepository;
+    private final ContratoRepository contratoRepository;
 
     @Autowired
     public PedidoService(InvestigadoRepository investigadoRepository, PedidoRepository pedidoRepository,
@@ -46,17 +46,13 @@ public class PedidoService implements IPedidosService {
 
         if (idCliente == null)
             throw new ApiExceptions("El campo id cliente no puede estar vacio", HttpStatus.BAD_REQUEST);
-
-        Cliente cliente = clienteRepository.findById(idCliente);
-        if (cliente == null)
-            throw new NotFoundException("El cliente no existe");
+        else
+            clienteRepository.findById(idCliente).orElseThrow(() -> new NotFoundException(String.format("El cliente %s no existe", idCliente)));
 
         if (idContrato == null)
             throw new ApiExceptions("El campo id contrato no puede estar vacio", HttpStatus.BAD_REQUEST);
-
-        Contrato contrato = contratoRepository.findById(idContrato);
-        if (contrato == null)
-            throw new NotFoundException("El contrato no existe");
+        else
+            contratoRepository.findByNumeroContrato(idContrato).orElseThrow(() -> new NotFoundException(String.format("El contrato %s no existe", idContrato)));
 
         if (investigado.getApellido() == null)
             throw new ApiExceptions("El campo apellido es requerido", HttpStatus.CONFLICT);

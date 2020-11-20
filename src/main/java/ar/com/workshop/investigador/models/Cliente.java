@@ -11,10 +11,13 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Cliente {
 
-    private Long id_Cliente;
+    private Long idCliente;
     private String nombre;
     private String apellido;
     private TipoIdentificador tipoIdentificador;
     private String numeroIdentificador;
 
+    public Cliente(Long idCliente) {
+        this.idCliente = idCliente;
+    }
 }
