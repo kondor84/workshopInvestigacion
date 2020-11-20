@@ -11,13 +11,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
+@Entity(name = "tipos_de_identificadores")
 public class TipoIdentificador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "TIPO_DOCUMENTO")
+    @Column(name = "tipo_documento")
     private String tipoDocumento;
     @OneToOne(mappedBy = "tipoIdentificador")
     private Empleado empleado;

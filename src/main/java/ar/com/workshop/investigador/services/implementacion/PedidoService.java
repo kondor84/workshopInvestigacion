@@ -19,11 +19,11 @@ public class PedidoService implements IPedidosService {
         return pedidoRepository.save(new Pedido(investigador,idCliente,idContrato,fechaCarga,fechaEntrega));
     }
 
+
     private void validarPedido(Long investigador, Long idCliente, Long idContrato, Date fechaCarga, Date fechaEntrega) throws NotFoundException {
     //TODO implementar
         if (idCliente == null){
             throw new NotFoundException("El campo id cliente no puede estar vacio");
         }
-
     }
 }

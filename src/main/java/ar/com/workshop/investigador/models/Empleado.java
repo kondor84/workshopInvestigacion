@@ -25,5 +25,4 @@ public class Empleado {
     @Column(name = "NUMERO_IDENTIFICADOR")
     private String numeroIdentificador;
     //private TipoEmpleado tipoEmpleado;
-
 }
