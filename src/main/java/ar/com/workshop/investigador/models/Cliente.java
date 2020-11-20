@@ -16,12 +16,16 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Cliente;
+    private Long idCliente;
     private String nombre;
     private String apellido;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_TIPO_IDENTIFICADOR", referencedColumnName = "id")
     private TipoIdentificador tipoIdentificador;
     private String numeroIdentificador;
+
+    public Cliente(Long idCliente) {
+        this.idCliente = idCliente;
+    }
 
 }
