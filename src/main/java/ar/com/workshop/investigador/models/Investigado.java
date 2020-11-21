@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -23,5 +24,7 @@ public class Investigado {
     @JoinColumn(name = "ID_TIPO_IDENTIFICADOR", referencedColumnName = "id")
     private TipoIdentificador tipoIdentificador;
     private String numeroIdentificador;
+    @OneToMany(mappedBy = "investigado")
+    private Set<Pedido> pedidos;
 
 }

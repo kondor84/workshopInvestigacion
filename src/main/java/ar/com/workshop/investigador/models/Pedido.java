@@ -29,8 +29,12 @@ public class Pedido {
     private Empleado empleado;
     private Date fechaCarga;
     private Date fechaEntrega;
-    //private EstadoPedido estadoPedido;
-    //private Investigado investigado;
+    @ManyToOne
+    @JoinColumn(name="ESTADO_PEDIDO", nullable=false)
+    private EstadoPedido estadoPedido;
+    @ManyToOne
+    @JoinColumn(name="INVESTIGADO", nullable=false)
+    private Investigado investigado;
 
     public Pedido(Investigado investigadoPedido, Long idCliente, Long idContrato, Date fechaCarga, Date fechaEntrega) {
         //this.investigado = investigadoPedido;

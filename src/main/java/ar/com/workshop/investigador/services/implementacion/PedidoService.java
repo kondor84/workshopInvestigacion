@@ -39,7 +39,7 @@ public class PedidoService implements IPedidosService {
         Investigado investigadoBD = existeInvestigado(investigado);
         Investigado investigadoPedido = investigadoBD != null ? investigadoBD : investigado;
         fechaCarga = fechaCarga != null ? fechaCarga : new Date();
-        return pedidoRepository.save(new Pedido(investigadoPedido, idCliente, idContrato, fechaCarga, fechaEntrega));
+        return pedidoRepository.save(new Pedido(investigado, idCliente, idContrato, fechaCarga, fechaEntrega));
     }
 
     private void validarPedido(Investigado investigado, Long idCliente, Long idContrato, Date fechaEntrega) throws NotFoundException {

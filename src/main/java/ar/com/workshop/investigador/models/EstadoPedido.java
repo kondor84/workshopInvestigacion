@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -19,5 +20,7 @@ public class EstadoPedido {
     private Long id;
     @Column(name = "ESTADO")
     private String estadoPedido;
+    @OneToMany(mappedBy = "estadoPedido")
+    private Set<Pedido> pedidos;
 
 }
