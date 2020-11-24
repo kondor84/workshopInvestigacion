@@ -17,7 +17,7 @@ public class TipoIdentificador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "tipo_documento")
+    @Column(name = "tipo_documento", nullable = false, length = 100)
     private String tipoDocumento;
     @OneToOne(mappedBy = "tipoIdentificador")
     private Empleado empleado;

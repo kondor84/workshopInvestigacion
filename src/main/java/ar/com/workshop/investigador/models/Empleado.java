@@ -18,15 +18,17 @@ public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long legajo;
+    @Column(name = "NOMBRE", nullable = false, length = 100)
     private String nombre;
+    @Column(name = "APELLIDO", nullable = false, length = 100)
     private String apellido;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_TIPO_IDENTIFICADOR", referencedColumnName = "id")
+    @JoinColumn(name = "ID_TIPO_IDENTIFICADOR", referencedColumnName = "id", nullable = false)
     private TipoIdentificador tipoIdentificador;
-    @Column(name = "NUMERO_IDENTIFICADOR")
+    @Column(name = "NUMERO_IDENTIFICADOR", nullable = false, length = 50)
     private String numeroIdentificador;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_TIPO_EMPLEADO", referencedColumnName = "id")
+    @JoinColumn(name = "ID_TIPO_EMPLEADO", referencedColumnName = "id", nullable = false)
     private TipoEmpleado tipoEmpleado;
     @OneToMany(mappedBy = "empleado")
     private Set<Pedido> pedidos;

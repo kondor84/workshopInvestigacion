@@ -18,6 +18,7 @@ public class TipoEmpleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "CARGO", nullable = false, length = 100)
     private String cargo;
     @OneToOne(mappedBy = "tipoEmpleado")
     private Empleado empleado;

@@ -18,7 +18,7 @@ public class EstadoPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "ESTADO")
+    @Column(name = "ESTADO", nullable = false, length = 100)
     private String estadoPedido;
     @OneToMany(mappedBy = "estadoPedido")
     private Set<Pedido> pedidos;

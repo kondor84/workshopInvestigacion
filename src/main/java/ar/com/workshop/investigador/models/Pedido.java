@@ -37,9 +37,9 @@ public class Pedido {
     private Investigado investigado;
 
     public Pedido(Investigado investigadoPedido, Long idCliente, Long idContrato, Date fechaCarga, Date fechaEntrega) {
-        //this.investigado = investigadoPedido;
-        //this.cliente = new Cliente(idCliente);
-        //this.contrato = new Contrato(idContrato);
+        this.investigado = investigadoPedido;
+        this.cliente = new Cliente(idCliente);
+        this.contrato = new Contrato(idContrato);
         this.fechaCarga =fechaCarga;
         this.fechaEntrega = fechaEntrega;
     }

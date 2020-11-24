@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "contratos")
+@Entity(name = "CONTRATOS")
 public class Contrato {
 
     @Id
@@ -21,10 +21,12 @@ public class Contrato {
     @Column(name = "NUMERO_CONTRATO")
     private Long numeroContrato;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_CLIENTE", referencedColumnName = "id_Cliente")
+    @JoinColumn(name = "ID_CLIENTE", referencedColumnName = "id_Cliente", nullable = false)
     private Cliente cliente;
     private int cupos;
+    @Column(name = "FECHA_ALTA", nullable = false)
     private Date fechaAlta;
+    @Column(name = "FECHA_VENCIMIENTO", nullable = false)
     private Date fechaVencimiento;
     @OneToMany(mappedBy = "contrato")
     private Set<Pedido> pedidos;
